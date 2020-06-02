@@ -12,15 +12,15 @@ Summary of the Presentation
 - We will answer the above question by regressing certain car features with miles per gallon using 'mtcars' dataset.
 - The results are highlighted in the form of a scatterplot involving a fitted line.
 - The user can also opt to see the slope coefficient and a conclusion based on the results. 
-- Snippet of ui.R and server.R is presented in the slides. The R codes are available on [Github](https://github.com/aadilnakhoda/developingdataproductsweek4).
+- Snippet of ui.R and server.R is presented in the slides. The R codes are available on <a href="https://github.com/aadilnakhoda/developingdataproductsweek4" target="_top"/>Github</a>.
 - The interactive panel and output is available at: [Shinyapps.io](https://aadilnakhoda.shinyapps.io/mtcars/)
 
 
-First six observations of the 'mtcars' dataset
+Structure of the 'mtcars' dataset
 ========================================================
 
 ```{r, eval=TRUE}
-head(mtcars)
+str(mtcars)
 ```
 
 Code for User Interface (ui.R)
