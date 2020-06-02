@@ -11,7 +11,7 @@ The application considers a simple regressional analysis between mileage (mpg) a
 
 **The Reproducible Pitch Presentation:**
 - It has 5 slides
-- Contains relevant links to the *Shinyapps.io*
+- Contains a link to the *Shinyapps.io*
 - Contains the link to the Github repository hosting the ui.R and server.R files.
 - Provides a peek into the structure of the dataset by running the str(mtcars) command.
 - Reports a snippet of codes in ui.R and server.R available in the Github repository.
