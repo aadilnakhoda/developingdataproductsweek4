@@ -1,7 +1,7 @@
-<h1> Peer-graded Assignment: Course Project: Shiny Application and Reproducible Pitch
-  <h2> Car Features and Mileage: Analysing the 'mtcars' Dataset
+<h1> Peer-graded Assignment: Course Project: Shiny Application and Reproducible Pitch </h1>
+  <h2> Car Features and Mileage: Analysing the 'mtcars' Dataset </h2>
 
-Using the **mtcars** dataset to determine relationship between mileage and car features.
+The **mtcars** dataset is used to determine the relationship between mileage and car features.
 The application considers a simple regressional analysis between mileage (mpg) and car features including number of cylinders, horsepower, weight, displacement and rear axle ratio.  
 
 **The app has:**
