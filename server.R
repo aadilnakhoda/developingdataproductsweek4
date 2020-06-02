@@ -1,0 +1,46 @@
+library(ggplot2)
+library(shiny)
+mtcars2<-mtcars
+shinyServer(function(input, output) {
+    selectedData <- reactive({
+        mtcars[, c("mpg", input$yin)]})
+    
+    lm1 <- lm(cyl ~ mpg, data = mtcars)
+    lm2 <- lm(wt ~ mpg, data = mtcars)
+    lm3 <- lm(hp ~ mpg, data = mtcars)
+    lm4 <- lm(disp ~ mpg, data = mtcars)
+    lm5 <- lm(drat ~ mpg, data = mtcars)
+ 
+    output$plot1 <- renderPlot({
+        par(mar = c(5.1, 4.1, 0, 1))
+        plot(selectedData(),
+         pch=20, cex = 3, xlab = "Miles per Gallon", ylab = input$yin)
+        if(input$showFit1){  
+        if(input$yin=='cyl'){abline(lm1, col = "red", lwd = 2)}
+        if(input$yin=='wt'){abline(lm2, col = "green", lwd = 2)}
+        if(input$yin=='hp'){abline(lm3, col = "blue", lwd = 2)}
+        if(input$yin=='disp'){abline(lm4, col = "orange", lwd = 2)}
+        if(input$yin=='drat'){abline(lm5, col = "purple", lwd = 2)}    
+        }
+        
+    })
+    
+    
+    
+    output$beta1 <- renderText({if(input$yin=='cyl' & input$showbeta1){lm1[[1]][2]}})
+    output$beta2 <- renderText({if(input$yin=='wt' & input$showbeta1 ){lm2[[1]][2]}})
+    output$beta3 <- renderText({if(input$yin=='hp' & input$showbeta1 ){lm3[[1]][2]}})
+    output$beta4 <- renderText({if(input$yin=='disp' & input$showbeta1 ){lm4[[1]][2]}})
+    output$beta5 <- renderText({if(input$yin=='drat' & input$showbeta1 ){lm5[[1]][2]}})
+    
+    output$text1 <- renderText({if(input$yin=='cyl' & input$showConclusion){"Greater the number of cylinders lower the MPG"}})
+    output$text2 <- renderText({if(input$yin=='wt' & input$showConclusion){"Greater the weight lower the MPG"}})
+    output$text3 <- renderText({if(input$yin=='hp' & input$showConclusion){"Greater the horsepower lower the MPG"}})
+    output$text4 <- renderText({if(input$yin=='disp' & input$showConclusion){"Greater the displacement lower the MPG"}})
+    output$text5 <- renderText({if(input$yin=='drat' & input$showConclusion){"Larger the drat (real axle ratio)  higher the MPG"}})
+    
+    output$table <- renderTable({
+        head(selectedData(),8)})
+})
+
+
